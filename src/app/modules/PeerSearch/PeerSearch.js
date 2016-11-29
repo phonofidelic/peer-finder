@@ -7,6 +7,12 @@ angular.module('peerFinder').controller('PeerSearchController', ['$scope', '$log
 	vm.test = function() {
 		$log.log('hello world');
 	}
+
+	vm.getPeers = function(continent) {
+		$http.get('http://localhost:5002/1/location/'+continent).then(function(response) {
+			$log.log(response)
+		})
+	}
 }]);
 
 angular.module('peerFinder').directive('peersearch', function() {

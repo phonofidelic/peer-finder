@@ -6,7 +6,10 @@
     "start": "gulp watch",
     "test": "gulp test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
   "devDependencies": {
     "event-stream": "^3.1.5",
     "gulp": "^3.7.0",
