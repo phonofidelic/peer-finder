@@ -7,6 +7,8 @@
 				<option value="na">North America</option>
 			</select>
 		</label>
+
+		<button type="button" class="btn btn-primary" ng-click="vm.getPeers(vm.data.continent)">Search</button>
 	</div>
 
 <!-- 	<div class="form-group">
@@ -18,17 +20,16 @@
 	</div> -->
 
 	<div>
-		<div class="peer" 
+		<div class="peer panel panel-default" 
 			 ng-repeat="peer in vm.peers">{{peer[peer.name[0]].peerName}} 
 
-			<pre id="{{peer[peer.name[0]].peerName}}">{{peer}}</pre>
-			<button type="button" 
-					class="btn btn-default" 
-					ngclipboard 
-					data-clipboard-target="#{{peer[peer.name[0]].peerName}}"
-					data-clipboard-text="{{JSON.stringify(peer)}}">coppy</button>
+			<pre id="{{peer[peer.name[0]].peerName}}">{{peer}}</pre>			
+
+			<button type="button" class="btn btn-default" ng-click="vm.addToPeerList(peer); peer.selected = true" ng-class="{'btn-success': peer.selected}">add</button>
 		</div>
 	</div>
 
-	<button type="button" class="btn btn-primary" ng-click="vm.getPeers(vm.data.continent)">button</button>
+	<button type="button" class="btn btn-default" ng-click="vm.getList()">get list</button>
+
+	<pre><div ng-repeat="peer in vm.peerList">{{peer}},</div></pre>
 </form>
