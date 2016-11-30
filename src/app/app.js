@@ -1,4 +1,5 @@
 
 angular.module('peerFinder', [
-  'ngRoute'
+  'ngRoute',
+  'ngclipboard'
 ]);

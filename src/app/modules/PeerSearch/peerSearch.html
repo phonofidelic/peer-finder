@@ -9,12 +9,25 @@
 		</label>
 	</div>
 
-	<div class="form-group">
+<!-- 	<div class="form-group">
 		<label for="country">
 			<select id="country" ng-model="vm.data.country">
 				<option></option>
 			</select>
 		</label>
+	</div> -->
+
+	<div>
+		<div class="peer" 
+			 ng-repeat="peer in vm.peers">{{peer[peer.name[0]].peerName}} 
+
+			<pre id="{{peer[peer.name[0]].peerName}}">{{peer}}</pre>
+			<button type="button" 
+					class="btn btn-default" 
+					ngclipboard 
+					data-clipboard-target="#{{peer[peer.name[0]].peerName}}"
+					data-clipboard-text="{{JSON.stringify(peer)}}">coppy</button>
+		</div>
 	</div>
 
 	<button type="button" class="btn btn-primary" ng-click="vm.getPeers(vm.data.continent)">button</button>
