@@ -11,25 +11,25 @@
 		<button type="button" class="btn btn-primary" ng-click="vm.getPeers(vm.data.continent)">Search</button>
 	</div>
 
-<!-- 	<div class="form-group">
-		<label for="country">
-			<select id="country" ng-model="vm.data.country">
-				<option></option>
-			</select>
-		</label>
-	</div> -->
-
 	<div>
 		<div class="peer panel panel-default" 
-			 ng-repeat="peer in vm.peers">{{peer[peer.name[0]].peerName}} 
+			 ng-repeat="peer in vm.peers">{{peer[peer.id[0]].peerName}} 
 
-			<pre id="{{peer[peer.name[0]].peerName}}">{{peer}}</pre>			
+			<pre id="{{peer[peer.id[0]].peerName}}">{{peer}}</pre>			
 
-			<button type="button" class="btn btn-default" ng-click="vm.addToPeerList(peer); peer.selected = true" ng-class="{'btn-success': peer.selected}">add</button>
+			<button type="button" 
+					class="btn btn-default"
+					ng-init="selected = false"
+					ng-click="vm.addToPeerList(peer); selected = true" 
+					ng-class="{'btn-success': selected}">add</button>
 		</div>
 	</div>
 
-	<button type="button" class="btn btn-default" ng-click="vm.getList()">get list</button>
+	<div ng-show="vm.peerBlockDisplay">
+		<pre>{{vm.peerBlockDisplay}}
+			<!-- <div ng-repeat="peer in vm.peerList">{{peer}},</div> -->
+		</pre>
 
-	<pre><div ng-repeat="peer in vm.peerList">{{peer}},</div></pre>
+		<button type="button" class="btn btn-default">coppy</button>
+	</div>
 </form>
