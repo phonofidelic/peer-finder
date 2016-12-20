@@ -10,19 +10,71 @@
 
 		<button type="button" class="btn btn-primary" ng-click="vm.getPeers(vm.data.continent)">Search</button>
 	</div>
+</form>
 
-	<div>
-		<div class="peer panel panel-default" 
-			 ng-repeat="peer in vm.peers">{{peer[peer.id[0]].peerName}} 
+<!-- 	<div class="peer panel panel-default" 
+		 ng-show="vm.peers">
 
-			<pre id="{{peer[peer.id[0]].peerName}}">{{peer}}</pre>			
-
+		<div ng-repeat="peer in vm.peers" 
+			 class="panel-heading">{{peer[peer.id[0]].peerName}}
+				
 			<button type="button" 
 					class="btn btn-default"
 					ng-init="selected = false"
 					ng-click="vm.addToPeerList(peer); selected = true" 
-					ng-class="{'btn-success': selected}">add</button>
-		</div>
+					ng-class="{'btn-success': selected}">add
+			</button>
+
+			<div class="panel-body">
+				 <ul class="list-group">
+				 	<li class="list-group-item" ng-repeat="(key, value) in peer[peer.id[0]]">{{key}}: {{value}}</li>
+				 </ul>
+			</div>
+		
+	</div> -->
+
+	<div class="peer panel panel-default"
+		 ng-show="vm.peers"> <h3>ipv4</h3>
+		
+		<div ng-repeat="peer in vm.peers.ipv4"
+			 class="panel-heading">{{peer.peerName}}
+
+			 <button type="button" 
+			 		 class="btn btn-default"
+			 		 ng-init="selected = false"
+			 		 ng-click="vm.addToPeerList(peer); selected = true"
+			 		 ng-class="{'btn-success': selected}">add
+			 </button>
+
+			 <div class="panel-body">
+			 	<ul class="list-group">
+			 		<li class="list-group-item"
+			 			ng-repeat="(key, value) in peer">{{key}}: {{value}}</li>
+			 	</ul>
+			 </div>
+		</div>	 	
+	</div>
+
+	<div class="peer panel panel-default"
+		 ng-show="vm.peers"> <h3>ipv6</h3>
+		
+		<div ng-repeat="peer in vm.peers.ipv6"
+			 class="panel-heading">{{peer.peerName}}
+
+			 <button type="button" 
+			 		 class="btn btn-default"
+			 		 ng-init="selected = false"
+			 		 ng-click="vm.addToPeerList(peer); selected = true"
+			 		 ng-class="{'btn-success': selected}">add
+			 </button>
+
+			 <div class="panel-body">
+			 	<ul class="list-group">
+			 		<li class="list-group-item"
+			 			ng-repeat="(key, value) in peer">{{key}}: {{value}}</li>
+			 	</ul>
+			 </div>
+		</div>	 	
 	</div>
 
 	<div ng-show="vm.peerBlockDisplay">
@@ -32,4 +84,4 @@
 
 		<button type="button" class="btn btn-default">coppy</button>
 	</div>
-</form>
+

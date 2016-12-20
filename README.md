@@ -1,11 +1,14 @@
 peer-finder
 ============
 
+An attempt at making it easier to link up to other Hyperboria nodes
+
 ## Development
 
 To start developing in the project run:
 
 ```bash
+node peers-api/server.js
 gulp serve
 ```
 
